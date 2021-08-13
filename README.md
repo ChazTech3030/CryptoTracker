@@ -1,4 +1,4 @@
-# CryptoTracker
+# CryptoTracker ![GitHub Logo](/images/icon.ico)
 
 A simple tracker for current holdings in crypto currencies. Will display the coin, amount owned, total price paid, average price of each coin held, current price for a single coin, current valuation of your holding, and the profit/loss for that specific coin holding. Furthermore, the application will show the valuation of your portfolio, as well as the price paid for all holdings shown in dollars.
 
