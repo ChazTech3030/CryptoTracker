@@ -1,6 +1,6 @@
 # CryptoTracker
 
-A simple tracker for current holdings in crypto currencies. Will display the coin, amount owned, total price paid, average price of each coin held, current price for a single coin, current valuation of your holding, and the profit/loss for that specific coin holding.
+A simple tracker for current holdings in crypto currencies. Will display the coin, amount owned, total price paid, average price of each coin held, current price for a single coin, current valuation of your holding, and the profit/loss for that specific coin holding. Furthermore, the application will show the valuation of your portfolio, as well as the price paid for all holdings shown in dollars.
 
 The database allows transacting between any 'ticker' as this field is entered manually and not from a pool of actual coins. This means you can use 'GBP' (£) as your source 'coin' and input any other receiving coin. At present, 'GBP' is the only source coin that will not be displayed as a currency holding on the application, but more will be added (USD, EURO, etc).
 
