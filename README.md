@@ -6,10 +6,10 @@ The database allows transacting between any 'ticker' as this field is entered ma
 
 # Features to be added
 
-First and foremost will be the 'Transact' function and associated GUI that will allow you to add transactions without having to interface with the DB directly (using such tools like DB Browser SQLite).
+* First and foremost will be the 'Transact' function and associated GUI that will allow you to add transactions without having to interface with the DB directly (using such tools like DB Browser SQLite).
 
-High on the list is to add regular updates via Threading or tkinter's .after() function. As it stands the application only refreshes the valuations when an option within the 'Order By' dropdown is selected (can be the same selection as the current selection).
+* High on the list is to add regular updates via Threading or tkinter's .after() function. As it stands the application only refreshes the valuations when an option within the 'Order By' dropdown is selected (can be the same selection as the current selection).
 
-A transaction history to show what has been traded with what, and when. Further improvements could include showing only transactions of a specific coin, as well as showing a timeline of trades made to allow frequency of purchases visualisation.
+* A transaction history to show what has been traded with what, and when. Further improvements could include showing only transactions of a specific coin, as well as showing a timeline of trades made to allow frequency of purchases visualisation.
 
-Adding in matplotlib to display graphs showcasing the coin's history, and potentially adding your P/L valuation over the coin's history too.
+* Adding in matplotlib to display graphs showcasing the coin's history, and potentially adding your P/L valuation over the coin's history too.
