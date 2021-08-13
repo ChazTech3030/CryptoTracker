@@ -10,6 +10,6 @@ First and foremost will be the 'Transact' function and associated GUI that will 
 
 High on the list is to add regular updates via Threading or tkinter's .after() function. As it stands the application only refreshes the valuations when an option within the 'Order By' dropdown is selected (can be the same selection as the current selection).
 
-Adding in matplotlib to display graphs showcasing the coin's history, and potentially adding your P/L valuation over the coin's history too.
-
 A transaction history to show what has been traded with what, and when. Further improvements could include showing only transactions of a specific coin, as well as showing a timeline of trades made to allow frequency of purchases visualisation.
+
+Adding in matplotlib to display graphs showcasing the coin's history, and potentially adding your P/L valuation over the coin's history too.
