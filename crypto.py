@@ -34,6 +34,8 @@ def buildData():
 	gbp_data = c.fetchall()
 	c.execute("SELECT * FROM transactions WHERE from_ <> 'GBP' ORDER BY date_yy, date_mm, date_dd")
 	not_gbp_data = c.fetchall()
+	c.execute("SELECT * FROM transactions WHERE to_ = 'GBP' ORDER BY date_yy, date_mm, date_dd")
+	paid_out_data = c.fetchall()
 	conn.commit()
 	conn.close()
 
@@ -60,6 +62,13 @@ def buildData():
 		coin_totals[row[0]] = coin_totals[row[0]] - row[1]
 		coin_costs[row[2]] = coin_costs[row[2]] + row[4]
 		coin_totals[row[2]] = coin_totals[row[2]] + row[3]
+
+	for row in paid_out_data:
+		# coin_totals[row[0]] = coin_totals[row[0]] - row[1]
+		if row[4] > coin_costs[row[0]]:
+			coin_costs[row[0]] = 0
+		else:
+			coin_costs[row[0]] = coin_costs[row[0]] - row[4]
 
 	for coin in coins:
 		if coin_totals[coin] == 0:
@@ -93,8 +102,8 @@ def buildData():
 	m_title_pl.grid(row=0,column=6, sticky=EW)
 	try:
 		getData()
-	except:
-		messagebox.showwarning("No Data","There is no data to display just yet - add transactions via the DB (function implementation in development).")
+	except Exception as e:
+		messagebox.showwarning("No Data","There is no data to display just yet - add transactions via the DB (function implementation in development).\r\nError shows:\r\n" + str(e))
 
 def getData():
 	requ_arg = ''
@@ -121,6 +130,9 @@ def getData():
 		# m_portfolio_cost_value_label.grid_forget()
 		# m_portfolio_value_value_label.grid_forget()
 		for coin in coins:
+			print(coin)
+			if coin == 'GBP':
+				continue
 			portfolio_value += float(coin_value[coin])
 			portfolio_cost += float(coin_costs[coin])
 			row_of_labels = []
@@ -162,7 +174,7 @@ def getData():
 		m_portfolio_cost_value_label.grid(row=1, column=3)
 	else:
 		print("Failed Response:", response.status_code)
-
+	print("-----Done-----")
 	Tk.update(root)
 	# root.after(10000, getData())
 
@@ -175,6 +187,8 @@ def clearDisplay():
 	for row in list_of_labels:
 		for label in row:
 			label.grid_forget()	
+	m_portfolio_value_value_label.grid_forget()	
+	m_portfolio_cost_value_label.grid_forget()	
 
 def selfSort(coins_list, htol):
 	global coins
